@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Snap Travel</string>
+    <string name="facebook_app_id">1205872852760851</string>
+
+    <string name="page_explore">Explore</string>
+    <string name="page_trip">Trip</string>
+    <string name="page_favourite">Favourite</string>
+    <string name="page_account">Account</string>
+
+    <string name="action_search">Search</string>
+    <string name="action_sort">Sort</string>
+
+</resources>

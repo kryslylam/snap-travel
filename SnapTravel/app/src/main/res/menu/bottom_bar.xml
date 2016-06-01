@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_bar_explore"
+        android:icon="@drawable/ic_explore_black_24dp"
+        android:title="@string/page_explore" />
+    <item
+        android:id="@+id/bottom_bar_trip"
+        android:icon="@drawable/ic_card_travel_black_24dp"
+        android:title="@string/page_trip" />
+    <item
+        android:id="@+id/bottom_bar_favourite"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="@string/page_favourite" />
+    <item
+        android:id="@+id/bottom_bar_account"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/page_account" />
+</menu>
