@@ -9,19 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.lly_lab.snaptravel.account.FacebookUser;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.List;
@@ -49,10 +41,10 @@ public class AccountFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
-        mFbUserNameTextView=(TextView) view.findViewById(R.id.facebook_user_name);
+        mFbUserNameTextView=(TextView) view.findViewById(R.id.fb_user_name);
 
         //implement Facebook login button
-        LoginButton fbLoginButton=(LoginButton) view.findViewById(R.id.facebook_login_button);
+        LoginButton fbLoginButton=(LoginButton) view.findViewById(R.id.fb_login_button);
         List<String> perm= Arrays.asList("public_profile","user_friends","email");
         fbLoginButton.setReadPermissions(perm);
         //for using login button inside a fragment
@@ -99,7 +91,7 @@ public class AccountFragment extends BaseFragment {
             @Override
             public void onError(FacebookException error) {
                 Log.d(ACC_FRAG_DEBUG_TAG,"FB Login failed - "+error.toString());
-                MainActivity.mSessionManager.setFbLogin(false);
+                MainActivity.mSessionManager.setFbLoginValue(false);
             }
         });
 
@@ -123,7 +115,7 @@ public class AccountFragment extends BaseFragment {
         //LoginButton fbLoginButton=(LoginButton) getView().findViewById(R.id.facebook_login_button);
 
         Log.d(ACC_FRAG_DEBUG_TAG,"Update FB Login view called");
-        if (MainActivity.mSessionManager.getFbLogin()) {
+        if (MainActivity.mSessionManager.getFbLoginValue()) {
             Log.d(ACC_FRAG_DEBUG_TAG,"FB logined, updating view");
             mFbUserNameTextView.setVisibility(View.VISIBLE);
             String fbUserName=MainActivity.mSessionManager.getFbUser().getName();

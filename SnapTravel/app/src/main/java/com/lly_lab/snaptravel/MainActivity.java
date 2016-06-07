@@ -1,6 +1,8 @@
 package com.lly_lab.snaptravel;
 
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -8,11 +10,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 //import com.ncapdevi.fragnav.FragNavController;
 import com.lly_lab.snaptravel.lib.FragNavController;
-import com.lly_lab.snaptravel.session.SessionManager;
+import com.lly_lab.snaptravel.manage.SessionManager;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Frag
     public static int mCurrentTabIndex;
     public static FragNavController mNavController;
     public static SessionManager mSessionManager;
+    public static ConnectivityManager mConnManager;
 
     //indice for the tabs
     public final static int INDEX_EXPLORE=FragNavController.TAB1;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Frag
 
         String appName=getResources().getString(R.string.app_name);
         mSessionManager=new SessionManager(this,appName);
+        mConnManager=(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         createUIComponent(savedInstanceState);
     }

@@ -26,12 +26,10 @@ public class ExploreFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_explore, container, false);
-
         //set action bar title
         getActionBar().setTitle(R.string.app_name);
         //to receive calls and handle option menu
         setHasOptionsMenu(true);
-
         return view;
     }
 

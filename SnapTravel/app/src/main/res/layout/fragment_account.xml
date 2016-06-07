@@ -3,13 +3,31 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lly_lab.snaptravel.AccountFragment">
+    tools:context="com.lly_lab.snaptravel.AccountFragment"
+    android:background="@color/material_grey_300">
+    <!---->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACCOUNT"
+        android:id="@+id/textView"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp" />
 
     <RelativeLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:background="@color/background_material_light"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/fb_icon"
@@ -17,47 +35,56 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_facebook_box_black_36dp" />
         <TextView
-            android:id="@+id/facebook_user_name"
+            android:id="@+id/fb_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_alignRight="@id/fb_icon"
-            android:layout_centerVertical="true"
+            android:textSize="15dp"
             android:layout_gravity="center_vertical"
-            android:layout_alignParentEnd="false" />
+            android:text="Facebook Account"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/fb_icon"
+            android:layout_toEndOf="@+id/fb_icon"
+            android:layout_marginLeft="5dp"
+            android:textIsSelectable="false" />
         <com.facebook.login.widget.LoginButton
-            android:id="@+id/facebook_login_button"
-            android:layout_width="wrap_content"
+            android:id="@+id/fb_login_button"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
+            android:layout_alignParentEnd="true"
+            android:gravity="center_horizontal"
+            android:text="Log in" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:padding="10dp"
+    <RelativeLayout
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:background="@color/background_material_light"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="5dp">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/google_drive_icon"
             android:src="@drawable/ic_google_drive_black_36dp" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Google Drive Account"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/textView2"
-            android:layout_gravity="center_vertical" />
-    </LinearLayout>
-
+            android:textSize="15dp"
+            android:id="@+id/google_user_name"
+            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/google_drive_icon"
+            android:layout_toEndOf="@+id/google_drive_icon" />
+    </RelativeLayout>
 
 
 </LinearLayout>
