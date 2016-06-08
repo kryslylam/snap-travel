@@ -1,4 +1,4 @@
-package com.lly_lab.snaptravel.manage;
+package com.lly_lab.snaptravel.management;
 
 import android.net.NetworkInfo;
 

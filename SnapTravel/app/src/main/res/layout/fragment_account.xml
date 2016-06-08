@@ -4,29 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.lly_lab.snaptravel.AccountFragment"
-    android:background="@color/material_grey_300">
-    <!---->
+    android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ACCOUNT"
-        android:id="@+id/textView"
+        android:id="@+id/account_label"
         android:textSize="15dp"
         android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:elevation="4dp"
         android:background="@color/background_material_light"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:padding="5dp">
 
         <ImageView
@@ -39,9 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:layout_gravity="center_vertical"
             android:text="Facebook Account"
-            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/fb_icon"
             android:layout_toEndOf="@+id/fb_icon"
             android:layout_marginLeft="5dp"
@@ -50,13 +42,39 @@
             android:id="@+id/fb_login_button"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:gravity="center_horizontal"
             android:text="Log in" />
+        <View
+            android:id="@+id/separator1"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="#90909090"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/fb_icon"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/google_drive_icon"
+            android:src="@drawable/ic_google_drive_black_36dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/separator1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google Drive Account"
+            android:textSize="15dp"
+            android:id="@+id/google_user_name"
+            android:layout_alignTop="@+id/google_drive_icon"
+            android:layout_toRightOf="@+id/google_drive_icon"
+            android:layout_toEndOf="@+id/google_drive_icon" />
     </RelativeLayout>
 
+    <!--
     <RelativeLayout
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
@@ -65,8 +83,6 @@
         android:layout_gravity="center_horizontal"
         android:elevation="4dp"
         android:background="@color/background_material_light"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:padding="5dp">
         <ImageView
             android:layout_width="wrap_content"
@@ -85,6 +101,7 @@
             android:layout_toRightOf="@+id/google_drive_icon"
             android:layout_toEndOf="@+id/google_drive_icon" />
     </RelativeLayout>
+    -->
 
 
 </LinearLayout>

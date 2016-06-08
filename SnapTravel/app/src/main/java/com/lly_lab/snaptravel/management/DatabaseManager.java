@@ -1,9 +1,8 @@
-package com.lly_lab.snaptravel.manage;
+package com.lly_lab.snaptravel.management;
 
 import com.lly_lab.snaptravel.account.FacebookUser;
-import com.lly_lab.snaptravel.storage.DatabaseAsyncTask;
-import com.lly_lab.snaptravel.storage.DatabaseOperationResult;
-import com.lly_lab.snaptravel.storage.DatabaseWriteAsyncTaskResponse;
+import com.lly_lab.snaptravel.os.DatabaseAsyncTask;
+import com.lly_lab.snaptravel.os.DatabaseWriteAsyncTaskResponse;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

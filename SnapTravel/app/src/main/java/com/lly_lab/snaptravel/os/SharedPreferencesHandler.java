@@ -1,4 +1,4 @@
-package com.lly_lab.snaptravel.storage;
+package com.lly_lab.snaptravel.os;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,7 +10,7 @@ public class SharedPreferencesHandler {
     private String mPreferenceName;
     private Context mContext;
 
-    private final String SHARED_PREF_DEBUG_TAG="SHARED PREFERENCE";
+    private static String LOG_TAG ="SHARED PREFERENCE";
 
     public SharedPreferencesHandler(Context context,String name)  {
         mPreferenceName=name;
@@ -52,7 +52,7 @@ public class SharedPreferencesHandler {
         SharedPreferences sharedPref=context.getSharedPreferences(mPreferenceName,Context.MODE_PRIVATE);
         Map<String,?> sharedPrefKeyValue=sharedPref.getAll();
         for(Map.Entry<String,?> entry: sharedPrefKeyValue.entrySet())   {
-            Log.d(SHARED_PREF_DEBUG_TAG,entry.getKey()+": "+entry.getValue().toString());
+            Log.d(LOG_TAG,entry.getKey()+": "+entry.getValue().toString());
         }
     }
 }

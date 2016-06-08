@@ -1,10 +1,10 @@
-package com.lly_lab.snaptravel.storage;
+package com.lly_lab.snaptravel.os;
 
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.lly_lab.snaptravel.os.IAsyncTaskResponse;
+import com.lly_lab.snaptravel.management.DatabaseOperationResult;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,8 +22,7 @@ public class DatabaseAsyncTask extends AsyncTask<String,Void,String> {
 
     public IAsyncTaskResponse mAsyncTaskResponse;
 
-    private final String DB_ASYNC_TASK_DEBUG_TAG="DB ASYNC TASK";
-    public final String DB_TASK_FAIL_MSG="FAILURE";
+    private static String LOG_TAG="DB ASYNC TASK";
 
     private static final int TIMEOUT=15000;
     private static final String CHAR_ENCODE="UTF-8";
@@ -102,8 +101,8 @@ public class DatabaseAsyncTask extends AsyncTask<String,Void,String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        Log.d(DB_ASYNC_TASK_DEBUG_TAG,"DB task '"+mTaskName+"' executed");
-        Log.d(DB_ASYNC_TASK_DEBUG_TAG,"Result= "+result);
+        Log.d(LOG_TAG,"DB task '"+mTaskName+"' executed");
+        Log.d(LOG_TAG,"Result= "+result);
 
         //read task: parse query result to JSON object, handle data
         //write take: notify user about the database operation result

@@ -1,0 +1,196 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Information"
+                android:id="@+id/information_label"
+                android:layout_marginBottom="5dp"
+                android:textSize="25dp"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Destination"
+                android:id="@+id/destination_label"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textAllCaps="true"
+                android:layout_marginTop="5dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/destination_city"
+                android:hint="City" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/destination_country"
+                android:hint="Country" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date of Travel"
+                android:id="@+id/date_of_travel_label"
+                android:textAllCaps="true"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:ems="10"
+                    android:id="@+id/start_date"
+                    android:hint="Start Date"
+                    android:onClick="showDatePickerDialog"
+                    android:layout_weight="5" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="TO"
+                    android:id="@+id/textView"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:ems="10"
+                    android:id="@+id/end_date"
+                    android:hint="End Date"
+                    android:onClick="showDatePickerDialog"
+                    android:layout_weight="5" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member"
+                android:id="@+id/member_label"
+                android:textAllCaps="true"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tag"
+                android:id="@+id/tag_label"
+                android:textAllCaps="true"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Setting"
+                android:id="@+id/setting_label"
+                android:layout_marginBottom="5dp"
+                android:textSize="25dp"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textAllCaps="true"
+                android:layout_marginTop="15dp" />
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Private Schedule"
+                android:id="@+id/private_schedule"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/material_grey_600"
+                android:textSize="15dp" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Private Expense Record"
+                android:id="@+id/private_expense_record"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:checked="false"
+                android:textColor="@color/material_grey_600"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exchange Rate"
+                    android:id="@+id/exchange_rate_label"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exchange_rate_hint"
+                    android:id="@+id/exchange_rate_hint"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="5"
+                    android:id="@+id/exchange_rate"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="textEnd"
+                    android:layout_gravity="end" />
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="Done"
+                android:id="@+id/done_button"
+                android:layout_gravity="right"
+                android:background="@drawable/btn_border"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

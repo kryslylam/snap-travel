@@ -1,4 +1,4 @@
-package com.lly_lab.snaptravel.storage;
+package com.lly_lab.snaptravel.management;
 
 import android.util.Log;
 

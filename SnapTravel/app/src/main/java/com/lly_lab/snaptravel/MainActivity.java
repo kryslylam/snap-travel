@@ -1,22 +1,31 @@
 package com.lly_lab.snaptravel;
 
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 //import com.ncapdevi.fragnav.FragNavController;
 import com.lly_lab.snaptravel.lib.FragNavController;
-import com.lly_lab.snaptravel.manage.SessionManager;
+import com.lly_lab.snaptravel.management.SessionManager;
+import com.lly_lab.snaptravel.util.Date;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -35,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Frag
     public final static int INDEX_FAVOURITE=FragNavController.TAB3;
     public final static int INDEX_ACCOUNT=FragNavController.TAB4;
 
-    private final String MAIN_ACT_DEBUG_TAG="MAIN ACTIVITY";
+    private static String LOG_TAG="MAIN ACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Frag
         });
         //Set colors for different tabs
         mBottomBar.mapColorForTab(0, ContextCompat.getColor(this, R.color.colorAccent));
-        mBottomBar.mapColorForTab(1, "#5D4037");
+        mBottomBar.mapColorForTab(1, "#33B5E5");
         mBottomBar.mapColorForTab(2, "#7B1FA2");
         mBottomBar.mapColorForTab(3, "#FF5252");
     }
@@ -124,6 +133,29 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Frag
     @Override
     public void pushFragment(Fragment fragment) {
         mNavController.push(fragment);
+        Log.d(LOG_TAG,"Fragment pushed: "+fragment.getClass());
     }
 
+    public void showDatePickerDialog(View v)    {
+        final EditText dateInput=(EditText)v;
+        dateInput.setEnabled(false);
+
+        // Use the current date as the default date in the picker
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Create a new instance of DatePickerDialog
+        DatePickerDialog.OnDateSetListener listener=new DatePickerDialog.OnDateSetListener()    {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)  {
+                dateInput.setText(Date.formatYMDtoString(year,monthOfYear,dayOfMonth));
+            }
+        };
+        DatePickerDialog datePickerDialog=new DatePickerDialog(this, listener, year, month, day);
+        datePickerDialog.show();
+        Log.d(LOG_TAG,"Date input updated");
+        dateInput.setEnabled(true);
+    }
 }

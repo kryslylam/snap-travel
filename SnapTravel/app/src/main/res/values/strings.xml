@@ -1,14 +1,18 @@
 <resources>
     <string name="app_name">Snap Travel</string>
+    <string name="trip_fragment_title">My Trip</string>
     <string name="facebook_app_id">1205872852760851</string>
 
     <string name="page_explore">Explore</string>
     <string name="page_trip">Trip</string>
     <string name="page_favourite">Favourite</string>
     <string name="page_account">Account</string>
+    <string name="page_create_trip">Create Trip</string>
 
     <string name="action_search">Search</string>
     <string name="action_sort">Sort</string>
     <string name="action_create">Create</string>
+
+    <string name="exchange_rate_hint">1 default currency = ? local currency</string>
 
 </resources>

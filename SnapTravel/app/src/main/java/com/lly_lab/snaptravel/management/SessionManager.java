@@ -1,4 +1,4 @@
-package com.lly_lab.snaptravel.manage;
+package com.lly_lab.snaptravel.management;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -13,8 +13,7 @@ import com.lly_lab.snaptravel.AccountFragment;
 import com.lly_lab.snaptravel.MainActivity;
 import com.lly_lab.snaptravel.R;
 import com.lly_lab.snaptravel.account.FacebookUser;
-import com.lly_lab.snaptravel.storage.DatabaseOperationResult;
-import com.lly_lab.snaptravel.storage.SharedPreferencesHandler;
+import com.lly_lab.snaptravel.os.SharedPreferencesHandler;
 
 public class SessionManager {
     /*
@@ -29,7 +28,7 @@ public class SessionManager {
     private static final String FB_LOGIN="FB_LOGIN";
     private static final String GOOGLE_LOGIN="GOOGLE_LOGIN";
 
-    private final String SESSION_MAN_DEBUG_TAG="SESSION MANAGER";
+    private static String LOG_TAG ="SESSION MANAGER";
 
 
     public SessionManager(Context context, String prefName)  {
@@ -37,7 +36,7 @@ public class SessionManager {
         mFbAccessTokenTracker=new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                Log.d(SESSION_MAN_DEBUG_TAG,"FB Access Token changed");
+                Log.d(LOG_TAG,"FB Access Token changed");
                 updateFbLoginValue();
                 if (getFbLoginValue() && Profile.getCurrentProfile()==null) {
                     //suppose to be called after first login
@@ -45,7 +44,7 @@ public class SessionManager {
                     mFbProfileTracker=new ProfileTracker() {
                         @Override
                         protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
-                            Log.d(SESSION_MAN_DEBUG_TAG,"FB Profile changed, stop tracking, try update user info again");
+                            Log.d(LOG_TAG,"FB Profile changed, stop tracking, try update user info again");
                             this.stopTracking();
                             updateFbUser();
 
@@ -66,7 +65,7 @@ public class SessionManager {
 
     public void setFbLoginValue(boolean value)   {
         mHandler.setBooleanPref(FB_LOGIN, value);
-        Log.d(SESSION_MAN_DEBUG_TAG,"Fb Login set to: "+value);
+        Log.d(LOG_TAG,"Fb Login set to: "+value);
     }
 
     public boolean getFbLoginValue() {
@@ -90,10 +89,10 @@ public class SessionManager {
         if (getFbLoginValue()) {
             Profile fbProfile = Profile.getCurrentProfile();
             if (fbProfile==null) {
-                Log.d(SESSION_MAN_DEBUG_TAG, "Update FB User called, Profile is null, update failed");
+                Log.d(LOG_TAG, "Update FB User called, Profile is null, update failed");
                 return;
             }
-            Log.d(SESSION_MAN_DEBUG_TAG, "Update FB User called, Profile: " + fbProfile.toString());
+            Log.d(LOG_TAG, "Update FB User called, Profile: " + fbProfile.toString());
             String fbCurrentId = fbProfile.getId();
             if (mFbUser == null || mFbUser.getId() != fbCurrentId) {
                 mFbUser = new FacebookUser(fbCurrentId, fbProfile.getName());

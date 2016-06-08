@@ -22,7 +22,7 @@ public class AccountFragment extends BaseFragment {
     private CallbackManager mFbCallbackManager;
     private TextView mFbUserNameTextView;
 
-    private final String ACC_FRAG_DEBUG_TAG="ACCOUNT FRAGMENT";
+    private static String LOG_TAG ="ACCOUNT FRAGMENT";
 
     public static AccountFragment newInstance(int instance) {
         Bundle args = new Bundle();
@@ -52,7 +52,7 @@ public class AccountFragment extends BaseFragment {
         fbLoginButton.registerCallback(mFbCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                Log.d(ACC_FRAG_DEBUG_TAG,"FB Login succeed");
+                Log.d(LOG_TAG,"FB Login succeed");
                 /*
                 //send a graph request to Facebook API to get information about the user
                 GraphRequest request=GraphRequest.newMeRequest(
@@ -62,8 +62,8 @@ public class AccountFragment extends BaseFragment {
                         new GraphRequest.GraphJSONObjectCallback() {
                             @Override
                             public void onCompleted(JSONObject object, GraphResponse response) {
-                                Log.d(ACC_FRAG_DEBUG_TAG,"JSONObject: "+object.toString());
-                                Log.d(ACC_FRAG_DEBUG_TAG,"GraphResponse: "+response.toString());
+                                Log.d(LOG_TAG,"JSONObject: "+object.toString());
+                                Log.d(LOG_TAG,"GraphResponse: "+response.toString());
                                 try {
                                     String id = object.getString("id");
                                     String name=object.getString("name");
@@ -71,7 +71,7 @@ public class AccountFragment extends BaseFragment {
                                     MainActivity.mSessionManager.setFbUser(new FacebookUser(id,name,email));
                                     updateFbLoginView();
                                 }   catch (JSONException e) {
-                                    Log.d(ACC_FRAG_DEBUG_TAG,"JSON Exception: "+e.toString());
+                                    Log.d(LOG_TAG,"JSON Exception: "+e.toString());
                                 }
                             }
                         });
@@ -84,13 +84,13 @@ public class AccountFragment extends BaseFragment {
 
             @Override
             public void onCancel() {
-                Log.d(ACC_FRAG_DEBUG_TAG,"FB Login cancelled");
+                Log.d(LOG_TAG,"FB Login cancelled");
 
             }
 
             @Override
             public void onError(FacebookException error) {
-                Log.d(ACC_FRAG_DEBUG_TAG,"FB Login failed - "+error.toString());
+                Log.d(LOG_TAG,"FB Login failed - "+error.toString());
                 MainActivity.mSessionManager.setFbLoginValue(false);
             }
         });
@@ -114,9 +114,9 @@ public class AccountFragment extends BaseFragment {
         //if Facebook is logined in this session, hide the button, show account info
         //LoginButton fbLoginButton=(LoginButton) getView().findViewById(R.id.facebook_login_button);
 
-        Log.d(ACC_FRAG_DEBUG_TAG,"Update FB Login view called");
+        Log.d(LOG_TAG,"Update FB Login view called");
         if (MainActivity.mSessionManager.getFbLoginValue()) {
-            Log.d(ACC_FRAG_DEBUG_TAG,"FB logined, updating view");
+            Log.d(LOG_TAG,"FB logined, updating view");
             mFbUserNameTextView.setVisibility(View.VISIBLE);
             String fbUserName=MainActivity.mSessionManager.getFbUser().getName();
             mFbUserNameTextView.setText(fbUserName);
